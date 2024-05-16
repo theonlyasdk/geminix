@@ -15,7 +15,7 @@ pip install google-generativeai
 4. Paste the API key into `env/token.secret`
 5. Check if it works by running `python geminix.py`
 
-> **Tip**: Create an alias for `python path/to/geminus.py` if you want to use it often
+> **Tip**: Create an alias for `python path/to/geminix.py` if you want to use it often
 
 ## Screenshots/recordings
 ![Geminix Python Demo](../demo/python/geminix_python_demo.gif "Geminix Python Demo")
