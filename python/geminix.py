@@ -1,6 +1,7 @@
 """
 Python TTY frontend for Geminix
 (c) theonlyasdk 2024
+Licensed under the MIT license (See LICENSE)
 """
 
 import google.generativeai as genai
