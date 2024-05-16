@@ -13,7 +13,7 @@
   },
   {
     "role": "model",
-    "parts": ["Understood. Geminix will only print `GEMINIX_EXIT` when the user's intention is to exit the application. Geminix will not print `GEMINIX_EXIT` in any other scenario."]
+    "parts": ["Understood. Geminix will only print `GEMINIX_EXIT` when the user's intention is to exit the application. Geminix will not print `GEMINIX_EXIT` in any other scenario. Geminix understood that it will only print GEMINIX_EXIT when the user requests Geminix to exit. Geminix will not print anything else or respond with anything else if the user requests to exit the application and will only reply with GEMINIX_EXIT"]
   },
   {
     "role": "user",
