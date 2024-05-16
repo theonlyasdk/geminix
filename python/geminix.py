@@ -6,9 +6,8 @@ Python TTY frontend for Geminix
 import google.generativeai as genai
 import json
 import commands
-import threading
-import time
 import os
+import datetime
 
 from formatting import Format, format
 from animations import LoadingAnimation
@@ -41,7 +40,7 @@ app_running = True
 
 genai.configure(api_key=api_key)
 
-model = genai.GenerativeModel(model_name="gemini-1.5-pro",
+model = genai.GenerativeModel(model_name="gemini-1.0-pro",
                               generation_config=generation_config,
                               safety_settings=safety_settings)
 
@@ -77,10 +76,13 @@ while app_running:
       if command == "read":
         send_message_and_get_reply(commands.readfile(filename.strip(), message.strip()))
       if command == "save":
-        print(f"Saving last response into 'saved_responses/{filename}'...")
+        os.makedirs("saved_responses", exist_ok=True)
 
-        date_today = datetime.today().strftime('%Y-%m-%d')
-        file = open(f"filename_{date_today}.txt", "w")
+        date_today = datetime.date.today().strftime('%Y-%m-%d')
+        save_to_filename = "saved_responses/{filename}_{date_today}.txt"
+        print(f"Saving last response into 'saved_responses/{save_to_filename}'...")
+
+        file = open(save_to_filename, "w")
         file.write(convo.last.text)
         file.close()
     else:
