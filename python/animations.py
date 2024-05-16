@@ -1,3 +1,6 @@
+import threading
+import time
+
 class LoadingAnimation:
   """
   A class for displaying a custom text loading animation in the background.
