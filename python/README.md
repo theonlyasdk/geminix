@@ -10,9 +10,9 @@ pip install google-generativeai
 ```
 
 ## Setting up
-1. Make sure you have a Google account setup
+1. Make sure you have a Google account set up
 2. Go to https://aistudio.google.com/app/ and click `Get API key`
 4. Paste the API key into `env/token.secret`
 5. Check if it works by running `python geminix.py`
 
-> **Tip**: Create an alias for this command if you want to use it often
+> **Tip**: Create an alias for `python path/to/geminus.py` if you want to use it often
