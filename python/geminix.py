@@ -55,7 +55,8 @@ def send_message(msg):
 
 def send_message_and_get_reply(msg):
     send_message(msg)
-    print(markdown_to_ansi(convo.last.text))
+    if not convo.last.text.__contains__("GEMINIX_EXIT"):
+      print(markdown_to_ansi(convo.last.text))
 
 def exit_app():
     print(config['events']['on_app_exit']['tell_user'])
@@ -65,12 +66,13 @@ print(format(config['events']['on_app_open']['tell_user'], Format.BOLD))
 send_message_and_get_reply(config['events']['on_app_open']['tell_model'])
 
 while app_running:
+  if convo.last.text.__contains__("GEMINIX_EXIT"): exit_app()
+
   prompt = input(format("> ", Format.BOLD))
   
-  if not_empty(prompt):
-    if convo.last.text.__contains__("GEMINIX_EXIT") or prompt == "exit":
-      exit_app()
+  if prompt == "exit": exit_app()
 
+  if not_empty(prompt):
     if commands.extract_command(prompt) is not None:
       command, filename, message = commands.extract_command(prompt)
       
@@ -80,7 +82,7 @@ while app_running:
         os.makedirs("saved_responses", exist_ok=True)
 
         date_today = datetime.date.today().strftime('%Y-%m-%d')
-        save_to_filename = "saved_responses/{filename}_{date_today}.txt"
+        save_to_filename = f"saved_responses/{filename}_{date_today}.txt"
         print(f"Saving last response into 'saved_responses/{save_to_filename}'...")
 
         file = open(save_to_filename, "w")
