@@ -17,5 +17,5 @@ pip install google-generativeai
 
 > **Tip**: Create an alias for `python path/to/geminix.py` if you want to use it often
 
-## Screenshots/recordings
+## Demo
 ![Geminix Python Demo](../demo/python/geminix_python_demo.gif "Geminix Python Demo")
