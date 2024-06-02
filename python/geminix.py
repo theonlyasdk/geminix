@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """
 Python TTY frontend for Geminix
 (c) theonlyasdk 2024
